@@ -1,0 +1,111 @@
+{
+  "format": "bot-battle-replay-v1",
+  "round": 2,
+  "match_number": 3,
+  "result": {
+    "bot_a": "Agresif",
+    "bot_b": "Penabung",
+    "lives_a": 3,
+    "lives_b": 0,
+    "turns": 3,
+    "winner": "Agresif",
+    "history": [
+      {
+        "turn": 1,
+        "before_lives": [
+          3,
+          3
+        ],
+        "before_energy": [
+          1,
+          1
+        ],
+        "actions": [
+          {
+            "type": "attack",
+            "energy": 1
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung kehilangan 1 nyawa",
+          "Penabung mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          2
+        ],
+        "after_energy": [
+          1,
+          3
+        ]
+      },
+      {
+        "turn": 2,
+        "before_lives": [
+          3,
+          2
+        ],
+        "before_energy": [
+          1,
+          3
+        ],
+        "actions": [
+          {
+            "type": "attack",
+            "energy": 1
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung kehilangan 1 nyawa",
+          "Penabung mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          1
+        ],
+        "after_energy": [
+          1,
+          5
+        ]
+      },
+      {
+        "turn": 3,
+        "before_lives": [
+          3,
+          1
+        ],
+        "before_energy": [
+          1,
+          5
+        ],
+        "actions": [
+          {
+            "type": "attack",
+            "energy": 1
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung kehilangan 1 nyawa",
+          "Penabung mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          0
+        ],
+        "after_energy": [
+          1,
+          7
+        ]
+      }
+    ]
+  }
+}

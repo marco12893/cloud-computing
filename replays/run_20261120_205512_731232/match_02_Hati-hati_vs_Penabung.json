@@ -1,0 +1,485 @@
+{
+  "format": "bot-battle-replay-v1",
+  "round": 1,
+  "match_number": 2,
+  "result": {
+    "bot_a": "Hati-hati",
+    "bot_b": "Penabung",
+    "lives_a": 1,
+    "lives_b": 0,
+    "turns": 15,
+    "winner": "Hati-hati",
+    "history": [
+      {
+        "turn": 1,
+        "before_lives": [
+          3,
+          3
+        ],
+        "before_energy": [
+          1,
+          1
+        ],
+        "actions": [
+          {
+            "type": "defence",
+            "kind": "A"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          3
+        ],
+        "after_energy": [
+          2,
+          3
+        ]
+      },
+      {
+        "turn": 2,
+        "before_lives": [
+          3,
+          3
+        ],
+        "before_energy": [
+          2,
+          3
+        ],
+        "actions": [
+          {
+            "type": "defence",
+            "kind": "B"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          3
+        ],
+        "after_energy": [
+          3,
+          5
+        ]
+      },
+      {
+        "turn": 3,
+        "before_lives": [
+          3,
+          3
+        ],
+        "before_energy": [
+          3,
+          5
+        ],
+        "actions": [
+          {
+            "type": "defence",
+            "kind": "C"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          3
+        ],
+        "after_energy": [
+          4,
+          7
+        ]
+      },
+      {
+        "turn": 4,
+        "before_lives": [
+          3,
+          3
+        ],
+        "before_energy": [
+          4,
+          7
+        ],
+        "actions": [
+          {
+            "type": "defence",
+            "kind": "A"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          3
+        ],
+        "after_energy": [
+          5,
+          9
+        ]
+      },
+      {
+        "turn": 5,
+        "before_lives": [
+          3,
+          3
+        ],
+        "before_energy": [
+          5,
+          9
+        ],
+        "actions": [
+          {
+            "type": "attack",
+            "energy": 5
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung kehilangan 1 nyawa",
+          "Penabung mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          2
+        ],
+        "after_energy": [
+          1,
+          11
+        ]
+      },
+      {
+        "turn": 6,
+        "before_lives": [
+          3,
+          2
+        ],
+        "before_energy": [
+          1,
+          11
+        ],
+        "actions": [
+          {
+            "type": "defence",
+            "kind": "C"
+          },
+          {
+            "type": "attack",
+            "energy": 10
+          }
+        ],
+        "notes": [
+          "Hati-hati kehilangan 1 nyawa"
+        ],
+        "after_lives": [
+          2,
+          2
+        ],
+        "after_energy": [
+          2,
+          2
+        ]
+      },
+      {
+        "turn": 7,
+        "before_lives": [
+          2,
+          2
+        ],
+        "before_energy": [
+          2,
+          2
+        ],
+        "actions": [
+          {
+            "type": "defence",
+            "kind": "A"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          2,
+          2
+        ],
+        "after_energy": [
+          3,
+          4
+        ]
+      },
+      {
+        "turn": 8,
+        "before_lives": [
+          2,
+          2
+        ],
+        "before_energy": [
+          3,
+          4
+        ],
+        "actions": [
+          {
+            "type": "defence",
+            "kind": "B"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          2,
+          2
+        ],
+        "after_energy": [
+          4,
+          6
+        ]
+      },
+      {
+        "turn": 9,
+        "before_lives": [
+          2,
+          2
+        ],
+        "before_energy": [
+          4,
+          6
+        ],
+        "actions": [
+          {
+            "type": "defence",
+            "kind": "C"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          2,
+          2
+        ],
+        "after_energy": [
+          5,
+          8
+        ]
+      },
+      {
+        "turn": 10,
+        "before_lives": [
+          2,
+          2
+        ],
+        "before_energy": [
+          5,
+          8
+        ],
+        "actions": [
+          {
+            "type": "attack",
+            "energy": 5
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung kehilangan 1 nyawa",
+          "Penabung mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          2,
+          1
+        ],
+        "after_energy": [
+          1,
+          10
+        ]
+      },
+      {
+        "turn": 11,
+        "before_lives": [
+          2,
+          1
+        ],
+        "before_energy": [
+          1,
+          10
+        ],
+        "actions": [
+          {
+            "type": "defence",
+            "kind": "B"
+          },
+          {
+            "type": "attack",
+            "energy": 10
+          }
+        ],
+        "notes": [
+          "Hati-hati kehilangan 1 nyawa"
+        ],
+        "after_lives": [
+          1,
+          1
+        ],
+        "after_energy": [
+          2,
+          1
+        ]
+      },
+      {
+        "turn": 12,
+        "before_lives": [
+          1,
+          1
+        ],
+        "before_energy": [
+          2,
+          1
+        ],
+        "actions": [
+          {
+            "type": "defence",
+            "kind": "C"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          1,
+          1
+        ],
+        "after_energy": [
+          3,
+          3
+        ]
+      },
+      {
+        "turn": 13,
+        "before_lives": [
+          1,
+          1
+        ],
+        "before_energy": [
+          3,
+          3
+        ],
+        "actions": [
+          {
+            "type": "defence",
+            "kind": "A"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          1,
+          1
+        ],
+        "after_energy": [
+          4,
+          5
+        ]
+      },
+      {
+        "turn": 14,
+        "before_lives": [
+          1,
+          1
+        ],
+        "before_energy": [
+          4,
+          5
+        ],
+        "actions": [
+          {
+            "type": "defence",
+            "kind": "B"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          1,
+          1
+        ],
+        "after_energy": [
+          5,
+          7
+        ]
+      },
+      {
+        "turn": 15,
+        "before_lives": [
+          1,
+          1
+        ],
+        "before_energy": [
+          5,
+          7
+        ],
+        "actions": [
+          {
+            "type": "attack",
+            "energy": 5
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung kehilangan 1 nyawa",
+          "Penabung mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          1,
+          0
+        ],
+        "after_energy": [
+          1,
+          9
+        ]
+      }
+    ]
+  }
+}

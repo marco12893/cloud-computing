@@ -1,0 +1,208 @@
+{
+  "format": "bot-battle-replay-v1",
+  "round": 3,
+  "match_number": 5,
+  "result": {
+    "bot_a": "Agresif",
+    "bot_b": "Hati-hati",
+    "lives_a": 2,
+    "lives_b": 0,
+    "turns": 6,
+    "winner": "Agresif",
+    "history": [
+      {
+        "turn": 1,
+        "before_lives": [
+          3,
+          3
+        ],
+        "before_energy": [
+          1,
+          1
+        ],
+        "actions": [
+          {
+            "type": "attack",
+            "energy": 1
+          },
+          {
+            "type": "defence",
+            "kind": "A"
+          }
+        ],
+        "notes": [
+          "Hati-hati berhasil menahan Attack 1"
+        ],
+        "after_lives": [
+          3,
+          3
+        ],
+        "after_energy": [
+          1,
+          2
+        ]
+      },
+      {
+        "turn": 2,
+        "before_lives": [
+          3,
+          3
+        ],
+        "before_energy": [
+          1,
+          2
+        ],
+        "actions": [
+          {
+            "type": "attack",
+            "energy": 1
+          },
+          {
+            "type": "defence",
+            "kind": "B"
+          }
+        ],
+        "notes": [
+          "Hati-hati kehilangan 1 nyawa"
+        ],
+        "after_lives": [
+          3,
+          2
+        ],
+        "after_energy": [
+          1,
+          3
+        ]
+      },
+      {
+        "turn": 3,
+        "before_lives": [
+          3,
+          2
+        ],
+        "before_energy": [
+          1,
+          3
+        ],
+        "actions": [
+          {
+            "type": "attack",
+            "energy": 1
+          },
+          {
+            "type": "defence",
+            "kind": "C"
+          }
+        ],
+        "notes": [
+          "Hati-hati kehilangan 1 nyawa"
+        ],
+        "after_lives": [
+          3,
+          1
+        ],
+        "after_energy": [
+          1,
+          4
+        ]
+      },
+      {
+        "turn": 4,
+        "before_lives": [
+          3,
+          1
+        ],
+        "before_energy": [
+          1,
+          4
+        ],
+        "actions": [
+          {
+            "type": "attack",
+            "energy": 1
+          },
+          {
+            "type": "defence",
+            "kind": "A"
+          }
+        ],
+        "notes": [
+          "Hati-hati berhasil menahan Attack 1"
+        ],
+        "after_lives": [
+          3,
+          1
+        ],
+        "after_energy": [
+          1,
+          5
+        ]
+      },
+      {
+        "turn": 5,
+        "before_lives": [
+          3,
+          1
+        ],
+        "before_energy": [
+          1,
+          5
+        ],
+        "actions": [
+          {
+            "type": "attack",
+            "energy": 1
+          },
+          {
+            "type": "attack",
+            "energy": 5
+          }
+        ],
+        "notes": [
+          "Hati-hati menang clash Attack",
+          "Agresif kehilangan 1 nyawa"
+        ],
+        "after_lives": [
+          2,
+          1
+        ],
+        "after_energy": [
+          1,
+          1
+        ]
+      },
+      {
+        "turn": 6,
+        "before_lives": [
+          2,
+          1
+        ],
+        "before_energy": [
+          1,
+          1
+        ],
+        "actions": [
+          {
+            "type": "attack",
+            "energy": 1
+          },
+          {
+            "type": "defence",
+            "kind": "C"
+          }
+        ],
+        "notes": [
+          "Hati-hati kehilangan 1 nyawa"
+        ],
+        "after_lives": [
+          2,
+          0
+        ],
+        "after_energy": [
+          1,
+          2
+        ]
+      }
+    ]
+  }
+}

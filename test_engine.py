@@ -1,4 +1,7 @@
 import unittest
+import json
+from pathlib import Path
+from tempfile import TemporaryDirectory
 
 from engine import attack, create_round_robin_schedule, defend, play_match, run_tournament
 
@@ -60,6 +63,16 @@ class EngineTests(unittest.TestCase):
 
         play_match({"name": "Pengubah", "choose_action": mutator}, {"name": "Pengamat", "choose_action": observer}, 2)
         self.assertEqual(seen_opponent_history[1], [attack(1)])
+
+    def test_tournament_saves_one_json_replay_per_match(self):
+        with TemporaryDirectory() as directory:
+            run_tournament([make_bot("A", [attack(1)]), make_bot("B", [defend("A")])], replay_directory=directory)
+            replay_files = list(Path(directory).glob("*.json"))
+            self.assertEqual(len(replay_files), 1)
+            with replay_files[0].open(encoding="utf-8") as replay_file:
+                replay = json.load(replay_file)
+            self.assertEqual(replay["format"], "bot-battle-replay-v1")
+            self.assertEqual(replay["result"]["bot_a"], "A")
 
 
 if __name__ == "__main__":

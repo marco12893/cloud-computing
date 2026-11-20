@@ -1,7 +1,9 @@
 """Engine Bot Battle tanpa class. Jalankan: python engine.py."""
 
 from copy import deepcopy
+from datetime import datetime
 import importlib.util
+import json
 import multiprocessing
 from pathlib import Path
 from queue import Empty
@@ -227,7 +229,43 @@ def print_standings(standings, title):
         print(f"{rank:<3} {row['name']:<19} {row['played']:<5} {row['wins']:<6} {row['losses']:<6} {row['draws']:<5} {row['life_difference']:<8} {row['points']}")
 
 
-def run_tournament(bots, show_progress=False):
+def create_replay_directory(base_directory="replays"):
+    """Buat folder replay baru untuk satu kali eksekusi turnamen."""
+    base = Path(base_directory)
+    base.mkdir(parents=True, exist_ok=True)
+    timestamp = datetime.now().strftime("run_%Y%m%d_%H%M%S_%f")
+    directory = base / timestamp
+    counter = 1
+    while directory.exists():
+        directory = base / (timestamp + "_" + str(counter))
+        counter += 1
+    directory.mkdir()
+    return directory
+
+
+def replay_file_name(match_number, result):
+    """Nama file yang aman untuk Windows dan tetap menjelaskan pasangan bot."""
+    def safe_name(name):
+        return "".join(character if character.isalnum() or character in "-_" else "_" for character in name)
+
+    return f"match_{match_number:02d}_{safe_name(result['bot_a'])}_vs_{safe_name(result['bot_b'])}.json"
+
+
+def save_replay(result, replay_directory, round_number, match_number):
+    """Simpan satu pertandingan sebagai JSON yang dapat diputar ulang."""
+    replay = {
+        "format": "bot-battle-replay-v1",
+        "round": round_number,
+        "match_number": match_number,
+        "result": result,
+    }
+    path = Path(replay_directory) / replay_file_name(match_number, result)
+    with path.open("w", encoding="utf-8") as replay_file:
+        json.dump(replay, replay_file, ensure_ascii=False, indent=2)
+    return path
+
+
+def run_tournament(bots, show_progress=False, replay_directory=None):
     table = {b["name"]: {"name": b["name"], "played": 0, "wins": 0, "losses": 0, "draws": 0, "life_difference": 0, "points": 0} for b in bots}
     if len(table) != len(bots):
         raise ValueError("Setiap BOT_NAME harus unik.")
@@ -238,6 +276,10 @@ def run_tournament(bots, show_progress=False):
         for bot_a, bot_b in pairs:
             result = play_match(bot_a, bot_b)
             matches.append(result)
+            if replay_directory is not None:
+                replay_path = save_replay(result, replay_directory, round_number, len(matches))
+                if show_progress:
+                    print("Replay disimpan: " + str(replay_path))
             a, b = table[result["bot_a"]], table[result["bot_b"]]
             a["played"] += 1; b["played"] += 1
             a["life_difference"] += result["lives_a"] - result["lives_b"]
@@ -271,10 +313,12 @@ def load_bots(directory="bots"):
 
 def main():
     bots = load_bots(Path(__file__).parent / "bots")
+    replay_directory = create_replay_directory(Path(__file__).parent / "replays")
+    print("Replay akan disimpan di: " + str(replay_directory))
     print("JADWAL ROUND-ROBIN")
     for number, pairs in enumerate(create_round_robin_schedule(bots), 1):
         print("Babak " + str(number) + ": " + ", ".join(a["name"] + " vs " + b["name"] for a, b in pairs))
-    standings, _ = run_tournament(bots, show_progress=True)
+    standings, _ = run_tournament(bots, show_progress=True, replay_directory=replay_directory)
     print_standings(standings, "KLASEMEN AKHIR")
 
 

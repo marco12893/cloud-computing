@@ -1,0 +1,545 @@
+{
+  "format": "bot-battle-replay-v1",
+  "round": 3,
+  "match_number": 6,
+  "result": {
+    "bot_a": "Penabung",
+    "bot_b": "Peniru",
+    "lives_a": 3,
+    "lives_b": 0,
+    "turns": 17,
+    "winner": "Penabung",
+    "history": [
+      {
+        "turn": 1,
+        "before_lives": [
+          3,
+          3
+        ],
+        "before_energy": [
+          1,
+          1
+        ],
+        "actions": [
+          {
+            "type": "charge"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge",
+          "Peniru mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          3
+        ],
+        "after_energy": [
+          3,
+          3
+        ]
+      },
+      {
+        "turn": 2,
+        "before_lives": [
+          3,
+          3
+        ],
+        "before_energy": [
+          3,
+          3
+        ],
+        "actions": [
+          {
+            "type": "charge"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge",
+          "Peniru mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          3
+        ],
+        "after_energy": [
+          5,
+          5
+        ]
+      },
+      {
+        "turn": 3,
+        "before_lives": [
+          3,
+          3
+        ],
+        "before_energy": [
+          5,
+          5
+        ],
+        "actions": [
+          {
+            "type": "charge"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge",
+          "Peniru mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          3
+        ],
+        "after_energy": [
+          7,
+          7
+        ]
+      },
+      {
+        "turn": 4,
+        "before_lives": [
+          3,
+          3
+        ],
+        "before_energy": [
+          7,
+          7
+        ],
+        "actions": [
+          {
+            "type": "charge"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge",
+          "Peniru mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          3
+        ],
+        "after_energy": [
+          9,
+          9
+        ]
+      },
+      {
+        "turn": 5,
+        "before_lives": [
+          3,
+          3
+        ],
+        "before_energy": [
+          9,
+          9
+        ],
+        "actions": [
+          {
+            "type": "charge"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge",
+          "Peniru mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          3
+        ],
+        "after_energy": [
+          11,
+          11
+        ]
+      },
+      {
+        "turn": 6,
+        "before_lives": [
+          3,
+          3
+        ],
+        "before_energy": [
+          11,
+          11
+        ],
+        "actions": [
+          {
+            "type": "attack",
+            "energy": 10
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Peniru kehilangan 1 nyawa",
+          "Peniru mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          2
+        ],
+        "after_energy": [
+          2,
+          13
+        ]
+      },
+      {
+        "turn": 7,
+        "before_lives": [
+          3,
+          2
+        ],
+        "before_energy": [
+          2,
+          13
+        ],
+        "actions": [
+          {
+            "type": "charge"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge",
+          "Peniru mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          2
+        ],
+        "after_energy": [
+          4,
+          15
+        ]
+      },
+      {
+        "turn": 8,
+        "before_lives": [
+          3,
+          2
+        ],
+        "before_energy": [
+          4,
+          15
+        ],
+        "actions": [
+          {
+            "type": "charge"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge",
+          "Peniru mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          2
+        ],
+        "after_energy": [
+          6,
+          17
+        ]
+      },
+      {
+        "turn": 9,
+        "before_lives": [
+          3,
+          2
+        ],
+        "before_energy": [
+          6,
+          17
+        ],
+        "actions": [
+          {
+            "type": "charge"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge",
+          "Peniru mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          2
+        ],
+        "after_energy": [
+          8,
+          19
+        ]
+      },
+      {
+        "turn": 10,
+        "before_lives": [
+          3,
+          2
+        ],
+        "before_energy": [
+          8,
+          19
+        ],
+        "actions": [
+          {
+            "type": "charge"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge",
+          "Peniru mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          2
+        ],
+        "after_energy": [
+          10,
+          21
+        ]
+      },
+      {
+        "turn": 11,
+        "before_lives": [
+          3,
+          2
+        ],
+        "before_energy": [
+          10,
+          21
+        ],
+        "actions": [
+          {
+            "type": "attack",
+            "energy": 10
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Peniru kehilangan 1 nyawa",
+          "Peniru mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          1
+        ],
+        "after_energy": [
+          1,
+          23
+        ]
+      },
+      {
+        "turn": 12,
+        "before_lives": [
+          3,
+          1
+        ],
+        "before_energy": [
+          1,
+          23
+        ],
+        "actions": [
+          {
+            "type": "charge"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge",
+          "Peniru mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          1
+        ],
+        "after_energy": [
+          3,
+          25
+        ]
+      },
+      {
+        "turn": 13,
+        "before_lives": [
+          3,
+          1
+        ],
+        "before_energy": [
+          3,
+          25
+        ],
+        "actions": [
+          {
+            "type": "charge"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge",
+          "Peniru mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          1
+        ],
+        "after_energy": [
+          5,
+          27
+        ]
+      },
+      {
+        "turn": 14,
+        "before_lives": [
+          3,
+          1
+        ],
+        "before_energy": [
+          5,
+          27
+        ],
+        "actions": [
+          {
+            "type": "charge"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge",
+          "Peniru mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          1
+        ],
+        "after_energy": [
+          7,
+          29
+        ]
+      },
+      {
+        "turn": 15,
+        "before_lives": [
+          3,
+          1
+        ],
+        "before_energy": [
+          7,
+          29
+        ],
+        "actions": [
+          {
+            "type": "charge"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge",
+          "Peniru mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          1
+        ],
+        "after_energy": [
+          9,
+          31
+        ]
+      },
+      {
+        "turn": 16,
+        "before_lives": [
+          3,
+          1
+        ],
+        "before_energy": [
+          9,
+          31
+        ],
+        "actions": [
+          {
+            "type": "charge"
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Penabung mendapat +1 energi dari Charge",
+          "Peniru mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          1
+        ],
+        "after_energy": [
+          11,
+          33
+        ]
+      },
+      {
+        "turn": 17,
+        "before_lives": [
+          3,
+          1
+        ],
+        "before_energy": [
+          11,
+          33
+        ],
+        "actions": [
+          {
+            "type": "attack",
+            "energy": 10
+          },
+          {
+            "type": "charge"
+          }
+        ],
+        "notes": [
+          "Peniru kehilangan 1 nyawa",
+          "Peniru mendapat +1 energi dari Charge"
+        ],
+        "after_lives": [
+          3,
+          0
+        ],
+        "after_energy": [
+          2,
+          35
+        ]
+      }
+    ]
+  }
+}
