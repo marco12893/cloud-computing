@@ -22,6 +22,17 @@ mengubah Docker image:
   MAX_TURNS       opsional  default 40
   STORAGE_MODE    opsional  "s3" (default) atau "local" untuk tes tanpa AWS
 
+Mode evaluasi (bot peserta melawan bot referensi yang sudah ada di image):
+  EVALUATION_ID   wajib  ID evaluasi dari backend
+  BOT_KEY         wajib  object key bot peserta di BOT_BUCKET
+  OPPONENT_ID     wajib  bot referensi: agresif, hati_hati, penabung, peniru
+  BOT_BUCKET      wajib di mode s3
+  MATCH_ID        opsional  default sama dengan EVALUATION_ID
+  RESULT_PREFIX   opsional  folder hasil (default: "evaluations/<EVALUATION_ID>")
+  OUTPUT_BUCKET   opsional  default BOT_BUCKET
+  BOT_NAME        opsional  nama tampilan bot peserta
+  Hasil: <RESULT_PREFIX>/report.json dan <RESULT_PREFIX>/replay.json
+
 Exit code:
   0  pertandingan selesai dan hasil tersimpan (termasuk kalau bot error,
      karena itu bagian dari hasil pertandingan)
@@ -270,7 +281,33 @@ def start_sandboxed_runner(bot):
 def read_config():
     env = os.environ
     mode = env.get("STORAGE_MODE", "s3").lower()
-    required = ["MATCH_ID", "BOT_A_KEY", "BOT_B_KEY"] + (["BOT_BUCKET"] if mode == "s3" else [])
+    bucket_required = ["BOT_BUCKET"] if mode == "s3" else []
+
+    if env.get("EVALUATION_ID") or env.get("BOT_KEY"):
+        required = ["EVALUATION_ID", "BOT_KEY", "OPPONENT_ID"] + bucket_required
+        missing = [name for name in required if not env.get(name)]
+        if missing:
+            raise InputError("Environment variable wajib belum diisi: " + ", ".join(missing))
+        evaluation_id = env["EVALUATION_ID"]
+        bot_bucket = env.get("BOT_BUCKET", "")
+        return {
+            "mode": mode,
+            "kind": "evaluation",
+            "evaluation_id": evaluation_id,
+            "opponent_id": env["OPPONENT_ID"],
+            "match_id": env.get("MATCH_ID") or evaluation_id,
+            "bot_bucket": bot_bucket,
+            "bots": {
+                "A": {"key": env["BOT_KEY"], "name": env.get("BOT_NAME")},
+                "B": {"builtin": env["OPPONENT_ID"], "name": None},
+            },
+            "output_bucket": env.get("OUTPUT_BUCKET") or bot_bucket,
+            "output_prefix": env.get("RESULT_PREFIX", f"evaluations/{evaluation_id}").strip("/"),
+            "result_file": "report.json",
+            "max_turns": int(env.get("MAX_TURNS", engine.MAX_TURNS)),
+        }
+
+    required = ["MATCH_ID", "BOT_A_KEY", "BOT_B_KEY"] + bucket_required
     missing = [name for name in required if not env.get(name)]
     if missing:
         raise InputError("Environment variable wajib belum diisi: " + ", ".join(missing))
@@ -278,6 +315,7 @@ def read_config():
     bot_bucket = env.get("BOT_BUCKET", "")
     return {
         "mode": mode,
+        "kind": "match",
         "match_id": match_id,
         "bot_bucket": bot_bucket,
         "bots": {
@@ -286,8 +324,20 @@ def read_config():
         },
         "output_bucket": env.get("OUTPUT_BUCKET") or bot_bucket,
         "output_prefix": env.get("OUTPUT_PREFIX", f"matches/{match_id}").strip("/"),
+        "result_file": "summary.json",
         "max_turns": int(env.get("MAX_TURNS", engine.MAX_TURNS)),
     }
+
+
+def read_builtin_bot(bot_id):
+    """Bot referensi yang ikut di dalam image (folder bots/)."""
+    if not bot_id.replace("_", "").isalnum():
+        raise InputError(f"OPPONENT_ID tidak valid: {bot_id}")
+    path = APP_DIR / "bots" / f"{bot_id.lower()}.py"
+    if not path.is_file():
+        available = sorted(p.stem for p in (APP_DIR / "bots").glob("*.py") if not p.name.startswith("_"))
+        raise InputError(f"Bot referensi '{bot_id}' tidak ada. Pilihan: {', '.join(available)}")
+    return path.read_bytes(), f"builtin:{bot_id.lower()}"
 
 
 def bot_name_from_source(source, fallback):
@@ -311,7 +361,10 @@ def prepare_bots(config, storage, workdir):
     bots = {}
     for side in ("A", "B"):
         info = config["bots"][side]
-        data = storage.read_bot(config["bot_bucket"], info["key"])
+        if "builtin" in info:
+            data, key = read_builtin_bot(info["builtin"])
+        else:
+            data, key = storage.read_bot(config["bot_bucket"], info["key"]), info["key"]
         path = workdir / f"bot_{side.lower()}.py"
         path.write_bytes(data)
         if sandbox:
@@ -319,8 +372,8 @@ def prepare_bots(config, storage, workdir):
             os.chown(path, user.pw_uid, user.pw_gid)
             os.chmod(path, 0o400)  # bot lawan tidak bisa membaca kode ini
         source = data.decode("utf-8", errors="replace")
-        name = info["name"] or bot_name_from_source(source, Path(info["key"]).stem)
-        bots[side] = {"name": name, "path": str(path), "side": side, "key": info["key"]}
+        name = info["name"] or bot_name_from_source(source, Path(key).stem)
+        bots[side] = {"name": name, "path": str(path), "side": side, "key": key}
     if bots["A"]["name"] == bots["B"]["name"]:  # engine membedakan pemenang dari nama
         bots["A"]["name"] += " (A)"
         bots["B"]["name"] += " (B)"
@@ -396,7 +449,10 @@ def run():
     replay = build_replay(config, bots, result)
     replay_location = storage.write_json(config["output_bucket"], f"{prefix}/replay.json", replay)
     summary = build_summary(config, bots, result, replay_location)
-    storage.write_json(config["output_bucket"], f"{prefix}/summary.json", summary)
+    if config["kind"] == "evaluation":
+        summary = {"evaluationId": config["evaluation_id"], "opponentId": config["opponent_id"], **summary}
+    summary["resultLocation"] = storage.write_json(
+        config["output_bucket"], f"{prefix}/{config['result_file']}", summary)
 
     engine.print_match(result)
     print("MATCH_SUMMARY " + json.dumps(summary, ensure_ascii=False))
